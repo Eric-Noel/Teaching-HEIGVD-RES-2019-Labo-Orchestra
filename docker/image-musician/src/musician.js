@@ -1,14 +1,10 @@
 const PROTOCOL_MULTICAST_ADDRESS = '239.255.22.5';
 const PROTOCOL_PORT = 2205;
 
-/*
- * We use a standard Node.js module to work with UDP
- */
+const uuidv4 = require('uuid/v4');
+
 const dgram = require('dgram');
 
-/*
- * Let's create a datagram socket. We will use it to send our UDP datagrams
- */
 const s = dgram.createSocket('udp4');
 
 const instruments = {
@@ -21,14 +17,20 @@ const instruments = {
 
 function Musician(instrument) {
   this.instrument = instrument;
+  this.uuid = uuidv4();
 
   function play() {
-    const message = Buffer.from(instruments[instrument]);
+    const musicianplaying = {
+      uuid: this.uuid,
+      sound: instruments[instrument],
+    };
+    const payload = JSON.stringify(musicianplaying);
+    const message = Buffer.from(payload);
     s.send(message, 0, message.length, PROTOCOL_PORT, PROTOCOL_MULTICAST_ADDRESS,
-      (err, bytes) => {
-        console.log(`Sending payload: ${instrument} via port ${s.address().port}`);
+      () => {
+        console.log(`Sending payload: ${message} via port ${s.address().port}`);
       });
-    console.log(instruments[instrument]);
+    console.log(`${message}`);
   }
 
   setInterval(play.bind(this), 1000);
@@ -36,5 +38,4 @@ function Musician(instrument) {
 
 
 const instrument = process.argv[2];
-
 const musician = new Musician(instrument);
