@@ -37,22 +37,25 @@ s.on('message', (msg, source) => {
       lastSound: moment().toISOString(),
     });
   }
+});
 
-  const TcpServ = net.createServer();
-  TcpServ.listen(PROTOCOL_PORT);
-  TcpServ.on('connection', (TcpSocket) => {
-    const informations = [];
-    musiciansList.forEach((mu, ke) => {
+const TcpServ = net.createServer();
+TcpServ.listen(PROTOCOL_PORT);
+TcpServ.on('connection', (TcpSocket) => {
+  const informations = [];
+  musiciansList.forEach((mu, ke) => {
+    if (moment().diff(mu.lastSound, 'seconds') > 5) {
+      musiciansList.delete(ke);
+    } else {
       const musicianInfo = {
         uuid: ke,
         instrument: mu.instrument,
         activeSince: mu.firstSound,
       };
       informations.push(musicianInfo);
-    });
-
-    TcpSocket.write(JSON.stringify(informations));
-    TcpSocket.write('\r\n');
-    TcpSocket.end();
+    }
   });
+  TcpSocket.write(JSON.stringify(informations));
+  TcpSocket.write('\r\n');
+  TcpSocket.end();
 });
