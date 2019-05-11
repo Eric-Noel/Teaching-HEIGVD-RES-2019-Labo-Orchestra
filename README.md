@@ -123,7 +123,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
 | | *Enter your response here...*  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | *Npm is a package manager for javascript*  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *Enter your response here...*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
