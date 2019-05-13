@@ -153,7 +153,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?  |
 | | *docker kill 'name'*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | **  |
+| | *We can use wireshark*  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -169,7 +169,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | When and how do we **get rid of inactive players**?  |
 | | *On a user tcp connection, we check the last acivity of each musician with moment().diff(); and if it is more than 5 we * |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | ** |
+| | *const net = require('net'); net.createServer();* |
 
 
 ## Task 5: package the "auditor" app in a Docker image
