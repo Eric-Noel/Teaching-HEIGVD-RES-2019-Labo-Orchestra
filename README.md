@@ -111,9 +111,9 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
 | | *The Auditor* |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | *We should put the musician id and the sound of the instrument* |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | ** |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -127,17 +127,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *This command installs a package, and any packages that it depends on.*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | **  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *npm install uuid
-     const uuidv4 = require('uuid/v4');
-     uuidv4();*  |
+| | *npm install uuid const uuidv4 = require('uuid/v4'); uuidv4();*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | *setInterval();*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
 | | *Enter your response here...*  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | *process.argv[];*  |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -145,11 +143,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| | *We creat a Dockerfile and then use docker build -t name*  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
 | | *Enter your response here...*  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| | *Enter your response here...*  |
+| | *With docker run name*  |
 |Question | How do we get the list of all **running containers**?  |
 | | *Enter your response here...*  |
 |Question | How do we **stop/kill** one running container?  |
