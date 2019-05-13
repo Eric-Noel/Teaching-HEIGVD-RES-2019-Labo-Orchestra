@@ -113,7 +113,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What **payload** should we put in the UDP datagrams? |
 | | *We should put the musician id and the sound of the instrument* |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | ** |
+| | *I use a map for the instruments and the sound and an array to list all active musicians. I update only the musicians list when a new musician is created or on a tcp connection from a user.* |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -127,13 +127,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *This command installs a package, and any packages that it depends on.*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | **  |
+| | *This site list packages that we can install with npm*  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
 | | *npm install uuid const uuidv4 = require('uuid/v4'); uuidv4();*  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
 | | *setInterval();*  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | *const dgram = require('dgram'); const s = dgram.createSocket('udp4'); s.send()*  |
 |Question | In Node.js, how can we **access the command line arguments**? |
 | | *process.argv[];*  |
 
@@ -145,15 +145,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?|
 | | *We creat a Dockerfile and then use docker build -t name*  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | **  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
 | | *With docker run name*  |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | *docker ps*  |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | *docker kill 'name'*  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | **  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -161,15 +161,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | *const dgram = require('dgram'); const s = dgram.createSocket('udp4'); s.bind('port'); s.on();*  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | ** |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | *const moment = require('moment'); moment().toISOString();* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | *On a user tcp connection, we check the last acivity of each musician with moment().diff(); and if it is more than 5 we * |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | ** |
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -177,7 +177,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | *1)We start a auditor, 2)We make a tcp on the auditor and check that there is no musician, 3)We start some musicians and do the point 2 but this time we check that there is some musicians, 4)We kill the musician * |
 
 
 ## Constraints
