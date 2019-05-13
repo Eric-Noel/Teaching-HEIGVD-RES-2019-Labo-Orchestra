@@ -145,7 +145,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?|
 | | *We creat a Dockerfile and then use docker build -t name*  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | **  |
+| | *ENTRYPOINT ["node", "/opt/app/musician.js"]*  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
 | | *With docker run name*  |
 |Question | How do we get the list of all **running containers**?  |
